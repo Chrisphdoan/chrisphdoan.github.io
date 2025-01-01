@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Name</title>
+    <!-- Add Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Navigation bar */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: transparent;
+            z-index: 1000;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav a:hover {
+            color: #ffd700;
+        }
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background: url('./images/aging_theme_2.jpeg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 4em;
+            margin: 0;
+            padding: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #ffd700;
+        }
+        /* Social icons */
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+        /* Scroll down button */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        /* About section styles */
+        .about-section {
+            padding: 80px 20px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .bio {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .details {
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        /* Experience section styles */
+.experience-section {
+    padding: 80px 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.experience-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.experience-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.experience-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.experience-item h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.experience-item .role {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.experience-item .year {
+    font-size: 1.1em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.experience-item .description {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.5;
+}
+        /* Add Education section styles right HERE */
+        .education-section {
+            padding: 80px 20px;
+            background-color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .education-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .education-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .education-item {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+        }
+
+        .education-item h3 {
+    font-size: 1.7em;
+    color: #333;
+    margin-bottom: 10px;
+    white-space: nowrap;  /* Add this line to prevent wrapping */
+    overflow: hidden;     /* Add this to handle overflow */
+    text-overflow: ellipsis; /* Add this to show ... if text is too long */
+}
+
+        .education-item .degree {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year {
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .education-item .description {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#more">More</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home"> 
+        <h1>I'm Chinh (Chris) Doan</h1>
+        <p></p>
+        
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="https://github.com/Chrisdoan9"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/chris-ph-doan/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/Chris_Ph_D"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <!-- Scroll Down Button -->
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>About me</h2>
+            <div class="profile-image">
+                <img src="./images/portrait.png" alt="Chinh Doan">
+            </div>
+            <p class="bio">
+                I am a researcher and bioinformatician focused on aging and aging-related diseases. I am interested in analyzing omics data and applying machine learning methods to biology questions.
+            </p>
+            <p class="details">
+            </p>
+        </div>
+    </section>
+    <!-- Experience Section -->
+<section id="experience" class="experience-section">
+    <div class="experience-content">
+        <h2>Experience</h2>
+        <div class="experience-item">
+            <h3>Boston University</h3>
+            <p class="role">Bioinformatics data analyst</p>
+            <p class="year">Jan 2024 - Present</p>
+            <p class="description">Analyzed omics data for Alzheimer disease</p>
+        </div>
+        <div class="experience-item">
+            <h3>Stanford University</h3>
+            <p class="role">Life science professional</p>
+            <p class="year">Jan 2023 - Dec 2023</p>
+            <p class="description">Analyzed omics data for cardiovascular diseases</p>
+        </div>
+    </div>
+</section>
+    <!-- Add the Education Section HERE -->
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="education-content">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Virginia Commonwealth University</h3>
+                <p class="degree">MSc. in Bioinformatics</p>
+                <p class="year"></p>
+                <p class="description"></p>
+            </div>
+            <!-- Add your pharmacy degree here -->
+            <div class="education-item">
+            <h3>University of Medicine and Pharmacy at Ho Chi Minh city</h3>
+            <p class="degree">Degree of Pharmacist</p>
+            <p class="year"></p>
+            <p class="description">Clinical pharmacy education with focus on medicinal chemistry and analytical chemistry</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
