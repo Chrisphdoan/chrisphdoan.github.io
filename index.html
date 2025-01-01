@@ -42,6 +42,7 @@
             align-items: center;
             text-align: center;
             color: white;
+            position: relative;
         }
         .hero h1 {
             font-size: 4em;
@@ -61,8 +62,8 @@
             margin: 0 10px;
             font-size: 24px;
         }
-        /* Scroll button */
-        .scroll-button {
+        /* Scroll buttons */
+        .scroll-button, .section-scroll-button {
             position: absolute;
             bottom: 40px;
             left: 50%;
@@ -79,9 +80,24 @@
             color: white;
             transition: all 0.3s ease;
         }
-        .scroll-button:hover {
+        .scroll-button:hover, .section-scroll-button:hover {
             background: rgba(255, 255, 255, 0.1);
         }
+        
+        .section-scroll-button {
+            border-color: #333;
+            color: #333;
+        }
+        
+        .section-scroll-button:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add relative positioning to sections */
+        .about-section, .experience-section, .education-section {
+            position: relative;
+        }
+        
         /* About section styles */
         .about-section {
             padding: 80px 20px;
@@ -255,7 +271,7 @@
             <a href="https://x.com/Chris_Ph_D"><i class="fab fa-twitter"></i></a>
         </div>
 
-        <!-- Updated Scroll Button -->
+        <!-- Scroll Button -->
         <div class="scroll-button">
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -273,6 +289,9 @@
             </p>
             <p class="details">
             </p>
+        </div>
+        <div class="section-scroll-button">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -292,6 +311,9 @@
                 <p class="year">Jan 2023 - Dec 2023</p>
                 <p class="description">Analyzed omics data for cardiovascular diseases</p>
             </div>
+        </div>
+        <div class="section-scroll-button">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -316,9 +338,27 @@
 
     <!-- Add JavaScript for smooth scrolling -->
     <script>
-        document.querySelector('.scroll-button').addEventListener('click', () => {
-            const aboutSection = document.getElementById('about');
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        // Function to handle scroll to next section
+        function scrollToNextSection(currentId) {
+            const sections = ['home', 'about', 'experience', 'education'];
+            const currentIndex = sections.indexOf(currentId);
+            if (currentIndex < sections.length - 1) {
+                const nextSection = document.getElementById(sections[currentIndex + 1]);
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add click handlers for all scroll buttons
+        document.querySelector('.hero .scroll-button').addEventListener('click', () => {
+            scrollToNextSection('home');
+        });
+
+        document.querySelector('.about-section .section-scroll-button').addEventListener('click', () => {
+            scrollToNextSection('about');
+        });
+
+        document.querySelector('.experience-section .section-scroll-button').addEventListener('click', () => {
+            scrollToNextSection('experience');
         });
     </script>
 </body>
