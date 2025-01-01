@@ -4,26 +4,7 @@
     <title>Your Name</title>
     <!-- Add Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Your existing content -->
-    
-    <!-- Add this button where you want it to appear -->
-    <button class="scroll-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-        </svg>
-    </button>
-
-    <!-- Add this script at the bottom of your body tag -->
-    <script>
-        document.querySelector('.scroll-button').addEventListener('click', () => {
-            const windowHeight = window.innerHeight;
-            window.scrollTo({
-                top: windowHeight,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-        
+    <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
