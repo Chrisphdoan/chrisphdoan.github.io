@@ -61,12 +61,26 @@
             margin: 0 10px;
             font-size: 24px;
         }
-        /* Scroll down button */
-        .scroll-down {
+        /* Scroll button */
+        .scroll-button {
             position: absolute;
-            bottom: 30px;
-            color: white;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .scroll-button:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         /* About section styles */
         .about-section {
@@ -113,57 +127,57 @@
             margin-bottom: 30px;
         }
         /* Experience section styles */
-.experience-section {
-    padding: 80px 20px;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
+        .experience-section {
+            padding: 80px 20px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
-.experience-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
+        .experience-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.experience-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 50px;
-    color: #333;
-}
+        .experience-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
 
-.experience-item {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
-}
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+        }
 
-.experience-item h3 {
-    font-size: 1.8em;
-    color: #333;
-    margin-bottom: 10px;
-}
+        .experience-item h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
-.experience-item .role {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 5px;
-}
+        .experience-item .role {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 5px;
+        }
 
-.experience-item .year {
-    font-size: 1.1em;
-    color: #888;
-    margin-bottom: 10px;
-}
+        .experience-item .year {
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 10px;
+        }
 
-.experience-item .description {
-    font-size: 1.1em;
-    color: #666;
-    line-height: 1.5;
-}
-        /* Add Education section styles right HERE */
+        .experience-item .description {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.5;
+        }
+        /* Education section styles */
         .education-section {
             padding: 80px 20px;
             background-color: white;
@@ -192,13 +206,13 @@
         }
 
         .education-item h3 {
-    font-size: 1.7em;
-    color: #333;
-    margin-bottom: 10px;
-    white-space: nowrap;  /* Add this line to prevent wrapping */
-    overflow: hidden;     /* Add this to handle overflow */
-    text-overflow: ellipsis; /* Add this to show ... if text is too long */
-}
+            font-size: 1.7em;
+            color: #333;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
         .education-item .degree {
             font-size: 1.2em;
@@ -241,8 +255,8 @@
             <a href="https://x.com/Chris_Ph_D"><i class="fab fa-twitter"></i></a>
         </div>
 
-        <!-- Scroll Down Button -->
-        <div class="scroll-down">
+        <!-- Updated Scroll Button -->
+        <div class="scroll-button">
             <i class="fas fa-chevron-down"></i>
         </div>
     </div>
@@ -261,25 +275,26 @@
             </p>
         </div>
     </section>
+
     <!-- Experience Section -->
-<section id="experience" class="experience-section">
-    <div class="experience-content">
-        <h2>Experience</h2>
-        <div class="experience-item">
-            <h3>Boston University</h3>
-            <p class="role">Bioinformatics data analyst</p>
-            <p class="year">Jan 2024 - Present</p>
-            <p class="description">Analyzed omics data for Alzheimer disease</p>
+    <section id="experience" class="experience-section">
+        <div class="experience-content">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Boston University</h3>
+                <p class="role">Bioinformatics data analyst</p>
+                <p class="year">Jan 2024 - Present</p>
+                <p class="description">Analyzed omics data for Alzheimer disease</p>
+            </div>
+            <div class="experience-item">
+                <h3>Stanford University</h3>
+                <p class="role">Life science professional</p>
+                <p class="year">Jan 2023 - Dec 2023</p>
+                <p class="description">Analyzed omics data for cardiovascular diseases</p>
+            </div>
         </div>
-        <div class="experience-item">
-            <h3>Stanford University</h3>
-            <p class="role">Life science professional</p>
-            <p class="year">Jan 2023 - Dec 2023</p>
-            <p class="description">Analyzed omics data for cardiovascular diseases</p>
-        </div>
-    </div>
-</section>
-    <!-- Add the Education Section HERE -->
+    </section>
+
     <!-- Education Section -->
     <section id="education" class="education-section">
         <div class="education-content">
@@ -290,14 +305,21 @@
                 <p class="year"></p>
                 <p class="description"></p>
             </div>
-            <!-- Add your pharmacy degree here -->
             <div class="education-item">
-            <h3>University of Medicine and Pharmacy at Ho Chi Minh city</h3>
-            <p class="degree">Degree of Pharmacist</p>
-            <p class="year"></p>
-            <p class="description">Clinical pharmacy education with focus on medicinal chemistry and analytical chemistry</p>
+                <h3>University of Medicine and Pharmacy at Ho Chi Minh city</h3>
+                <p class="degree">Degree of Pharmacist</p>
+                <p class="year"></p>
+                <p class="description">Clinical pharmacy education with focus on medicinal chemistry and analytical chemistry</p>
             </div>
         </div>
     </section>
+
+    <!-- Add JavaScript for smooth scrolling -->
+    <script>
+        document.querySelector('.scroll-button').addEventListener('click', () => {
+            const aboutSection = document.getElementById('about');
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
