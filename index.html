@@ -255,6 +255,17 @@
             color: #666;
             line-height: 1.5;
         }
+        /* ─── social-icon overrides ───────────────────────────── */
+.social-icons a {                       /* base look for all icons */
+    font-size: 32px;                    /* bigger than default */
+    margin: 0 8px;
+    transition: opacity .2s;
+}
+.social-icons a.github   { color: #181717; }   /* GitHub black  */
+.social-icons a.linkedin { color: #0077b5; }   /* LinkedIn blue */
+.social-icons a.twitter  { color: #1da1f2; }   /* Twitter/X blue*/
+.social-icons a:hover    { opacity: .8; }      /* subtle hover  */
+/* ───────────────────────────────────────────────────────────── */
     </style>
 </head>
 <body>
@@ -274,9 +285,9 @@
         
         <!-- Social Icons -->
         <div class="social-icons">
-            <a href="https://github.com/Chrisdoan9"><i class="fab fa-github fa-2x"></i></a>
-            <a href="https://www.linkedin.com/in/chris-ph-doan/"><i class="fab fa-linkedin fa-2x"></i></a>
-            <a href="https://x.com/Chris_Ph_D"><i class="fab fa-twitter fa-2x"></i></a>
+            <a class="github" href="https://github.com/Chrisdoan9"><i class="fab fa-github fa-2x"></i></a>
+            <a class="linkedin" href="https://www.linkedin.com/in/chris-ph-doan/"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a class="twitter" href="https://x.com/Chris_Ph_D"><i class="fab fa-twitter fa-2x"></i></a>
         </div>
 
         <!-- Scroll Button -->
