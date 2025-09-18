@@ -1,3 +1,5 @@
 title: Chris Doan's Blog
-description: Bioinformatics and Data Analysistheme: minima
-plugins:  - jekyll-feed
+description: Bioinformatics and Data Analysis
+theme: minima
+plugins:  
+  - jekyll-feed
