@@ -1,4 +1,4 @@
-How do we cluster cell in single-cell RNA-seq?  
+How do we cluster cells in single-cell RNA-seq?  
 
 Graph-based clustering (Seurat)  
 FindNeighbors() has default k = 20, k-nearest neighbor (kNN)  
