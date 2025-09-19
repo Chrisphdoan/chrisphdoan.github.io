@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Clustering Cells in Single Cell Analysis"
+date: 2025-09-18
+categories: bioinformatics
+---
 How do we cluster cells in single-cell RNA-seq?  
 
 Graph-based clustering (Seurat)  
