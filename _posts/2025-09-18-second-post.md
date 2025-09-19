@@ -1,3 +1,8 @@
-Clustering algorithms in single cell: Louvain or Leiden  
 Graph-based clustering (Seurat)  
-https://bioconductor.org/books/3.15/OSCA.basic/clustering.html
+FindNeighbors() has default k = 20, k-nearest neighbor (kNN)  
+https://bioconductor.org/books/3.15/OSCA.basic/clustering.html  
+1. Similarity is computed. Euclidean distance or cosine similarity  
+2. Nearest neighbors are found
+3. A graph (network) is built. Cells = nodes, neighbor relationships = edges, stronger similarity = stronger edge weight.  
+4. Communities (clusters) are detected. Clustering algorithms in single cell: Louvain or Leiden
+
