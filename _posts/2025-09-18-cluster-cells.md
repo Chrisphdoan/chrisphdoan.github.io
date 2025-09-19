@@ -6,8 +6,8 @@ categories: bioinformatics
 ---
 How do we cluster cells in single-cell RNA-seq?  
 
-Graph-based clustering (Seurat)  
-FindNeighbors() has default k = 20, k-nearest neighbor (kNN)  
+Graph-based clustering (Seurat) is the most popular method.  
+FindNeighbors() has default k = 20, k-nearest neighbor (kNN), 20 cells  
 https://bioconductor.org/books/3.15/OSCA.basic/clustering.html  
 1. Similarity is computed. Euclidean distance or cosine similarity  
 2. Nearest neighbors are found
