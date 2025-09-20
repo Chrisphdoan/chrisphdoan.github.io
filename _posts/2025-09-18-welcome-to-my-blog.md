@@ -2,7 +2,7 @@
 layout: post
 title: "Welcome to My Blog"
 date: 2025-09-18
-categories: bioinformatics
+categories: [bioinformatics, biomedical]
 ---
 
 I'll be sharing insights about bioinformatics, data analysis, and my research journey here. Stay tuned for posts about:
