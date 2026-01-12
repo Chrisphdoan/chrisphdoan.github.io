@@ -45,19 +45,19 @@ layout: none
         }
         /* Hero section */
         .hero {
-    height: 100vh;
-    background: url('./images/aging_theme_2.jpeg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: visible;
-    padding-bottom: 80px;
-}
+            height: 100vh;
+            background: url('./images/aging_theme_2.jpeg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: visible;
+            padding-bottom: 80px;
+        }
         .hero h1 {
             font-size: 4em;
             margin: 0;
@@ -111,17 +111,97 @@ layout: none
         .about-section, .experience-section, .education-section {
             position: relative;
         }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            margin-left: 20px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .theme-toggle .sun-icon,
+        .theme-toggle .moon-icon {
+            font-size: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        body.dark-mode .nav {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-mode .about-content,
+        body.dark-mode .experience-item,
+        body.dark-mode .education-item {
+            background-color: #2d2d2d;
+            color: #fff;
+        }
+
+        body.dark-mode .about-section h2,
+        body.dark-mode .experience-item h3,
+        body.dark-mode .education-item h3 {
+            color: #fff;
+        }
+
+        body.dark-mode .bio,
+        body.dark-mode .details,
+        body.dark-mode .experience-item .role,
+        body.dark-mode .experience-item .description,
+        body.dark-mode .education-item .degree,
+        body.dark-mode .education-item .description {
+            color: #ccc;
+        }
+
+        body.dark-mode .experience-item .year,
+        body.dark-mode .education-item .year {
+            color: #999;
+        }
+
+        body.dark-mode .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: #666;
+        }
+
+        body.dark-mode .section-scroll-button {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* Hide/show icons based on theme */
+        body:not(.dark-mode) .moon-icon {
+            display: none;
+        }
+
+        body.dark-mode .sun-icon {
+            display: none;
+        }
         
         /* About section styles */
         .about-section {
-    padding: 80px 20px 120px 20px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    min-height: calc(100vh - 120px);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: visible;
-}
+            padding: 80px 20px 120px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: visible;
+        }
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -163,14 +243,14 @@ layout: none
         }
         /* Experience section styles */
         .experience-section {
-    padding: 80px 20px 120px 20px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    min-height: calc(100vh - 120px);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: visible;
-}
+            padding: 80px 20px 120px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: visible;
+        }
 
         .experience-content {
             max-width: 800px;
@@ -216,14 +296,14 @@ layout: none
         }
         /* Education section styles */
         .education-section {
-    padding: 80px 20px 120px 20px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    min-height: calc(100vh - 120px);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: visible;
-}
+            padding: 80px 20px 120px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: visible;
+        }
 
         .education-content {
             max-width: 800px;
@@ -271,16 +351,15 @@ layout: none
             line-height: 1.5;
         }
         /* ─── social-icon overrides ───────────────────────────── */
-.social-icons a {                       /* base look for all icons */
-    font-size: 32px;                    /* bigger than default */
-    margin: 0 8px;
-    transition: opacity .2s;
-}
-.social-icons a.github   { color: #181717; }   /* GitHub black  */
-.social-icons a.linkedin { color: #0077b5; }   /* LinkedIn blue */
-.social-icons a.twitter  { color: #1da1f2; }   /* Twitter/X blue*/
-.social-icons a:hover    { opacity: .8; }      /* subtle hover  */
-/* ───────────────────────────────────────────────────────────── */
+        .social-icons a {
+            font-size: 32px;
+            margin: 0 8px;
+            transition: opacity .2s;
+        }
+        .social-icons a.github   { color: #181717; }
+        .social-icons a.linkedin { color: #0077b5; }
+        .social-icons a.twitter  { color: #1da1f2; }
+        .social-icons a:hover    { opacity: .8; }
     </style>
 </head>
 <body>
@@ -294,9 +373,9 @@ layout: none
         <a href="#more">More</a>
         
         <button id="theme-toggle" class="theme-toggle">
-        <span class="sun-icon">☀️</span>
-        <span class="moon-icon">🌙</span>
-    </button>
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
     </div>
 
     <!-- Hero Section -->
@@ -378,6 +457,24 @@ layout: none
 
     <!-- Add JavaScript for smooth scrolling -->
     <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Save preference
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
         // Function to handle scroll to next section
         function scrollToNextSection(currentId) {
             const sections = ['home', 'about', 'experience', 'education'];
