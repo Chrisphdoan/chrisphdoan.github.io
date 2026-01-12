@@ -1,10 +1,10 @@
----
-layout: none
----
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Your Name</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Doan - Bioinformatics Researcher</title>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKGKF0E6SX"></script>
     <script>
@@ -14,176 +14,470 @@ layout: none
         gtag('config', 'G-VKGKF0E6SX');
     </script>
     
-    <!-- Add Font Awesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
         }
-        /* Navigation bar */
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            transition: var(--transition);
+        }
+
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px;
-            text-align: center;
-            background: transparent;
+            padding: 1.25rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
             z-index: 1000;
+            transition: var(--transition);
         }
-        .nav a {
-            color: white;
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
             text-decoration: none;
-            margin: 0 15px;
-            padding: 5px 10px;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
         .nav a:hover {
-            color: #ffd700;
+            color: var(--primary-color);
         }
-        /* Hero section */
-        .hero {
-            height: 100vh;
-            background: url('./images/aging_theme_2.jpeg') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: visible;
-            padding-bottom: 80px;
-        }
-        .hero h1 {
-            font-size: 4em;
-            margin: 0;
-            padding: 20px;
-        }
-        .hero p {
-            font-size: 1.2em;
-            color: #ffd700;
-        }
-        /* Social icons */
-        .social-icons {
-            margin-top: 30px;
-        }
-        .social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 24px;
-        }
-        /* Scroll buttons */
-        .scroll-button, .section-scroll-button {
+
+        .nav a::after {
+            content: '';
             position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: transparent;
-            border: 2px solid white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-light);
+            border: none;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .scroll-button:hover, .section-scroll-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .section-scroll-button {
-            border-color: #333;
-            color: #333;
-        }
-        
-        .section-scroll-button:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        /* Add relative positioning to sections */
-        .about-section, .experience-section, .education-section {
-            position: relative;
-        }
-
-        /* Theme toggle button */
-        .theme-toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid white;
-            border-radius: 25px;
-            padding: 8px 15px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s ease;
-            margin-left: 20px;
+            gap: 0.5rem;
+            transition: var(--transition);
+            font-size: 1.1rem;
         }
 
         .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
         }
 
-        .theme-toggle .sun-icon,
-        .theme-toggle .moon-icon {
-            font-size: 20px;
-            transition: opacity 0.3s ease;
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
         }
 
-        /* Dark mode styles */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('./images/aging_theme_2.jpeg') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .scroll-indicator i {
+            color: white;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .profile-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Experience & Education Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon i {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .card .role {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .year {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card .description {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Dark Mode */
         body.dark-mode {
-            background: #1a1a1a;
-            color: #fff;
+            --text-dark: #f9fafb;
+            --text-light: #d1d5db;
+            --bg-light: #1f2937;
+            --bg-white: #111827;
+            background: #0f172a;
         }
 
         body.dark-mode .nav {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(17, 24, 39, 0.95);
         }
 
-        body.dark-mode .about-content,
-        body.dark-mode .experience-item,
-        body.dark-mode .education-item {
-            background-color: #2d2d2d;
-            color: #fff;
+        body.dark-mode .card {
+            background: #1f2937;
+            border-color: rgba(255,255,255,0.1);
         }
 
-        body.dark-mode .about-section h2,
-        body.dark-mode .experience-item h3,
-        body.dark-mode .education-item h3 {
-            color: #fff;
-        }
-
-        body.dark-mode .bio,
-        body.dark-mode .details,
-        body.dark-mode .experience-item .role,
-        body.dark-mode .experience-item .description,
-        body.dark-mode .education-item .degree,
-        body.dark-mode .education-item .description {
-            color: #ccc;
-        }
-
-        body.dark-mode .experience-item .year,
-        body.dark-mode .education-item .year {
-            color: #999;
+        body.dark-mode .skill-tag {
+            background: #1f2937;
         }
 
         body.dark-mode .theme-toggle {
-            background: rgba(0, 0, 0, 0.3);
-            border-color: #666;
+            background: #1f2937;
         }
 
-        body.dark-mode .section-scroll-button {
-            border-color: #fff;
-            color: #fff;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image img {
+                margin: 0 auto;
+            }
+
+            .skills {
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
         }
 
-        /* Hide/show icons based on theme */
+        /* Hide/show theme icons */
         body:not(.dark-mode) .moon-icon {
             display: none;
         }
@@ -191,311 +485,165 @@ layout: none
         body.dark-mode .sun-icon {
             display: none;
         }
-        
-        /* About section styles */
-        .about-section {
-            padding: 80px 20px 120px 20px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            min-height: calc(100vh - 120px);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: visible;
-        }
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;                  
-            border-radius: 8px;             
-            background-color: white;
-        }
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 30px;
-            overflow: hidden;
-            border-radius: 50%;
-            border: 3px solid #333;
-        }
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .about-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            color: #333;
-        }
-        
-        .bio {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .details {
-            font-size: 1.1em;
-            line-height: 1.5;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        /* Experience section styles */
-        .experience-section {
-            padding: 80px 20px 120px 20px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            min-height: calc(100vh - 120px);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: visible;
-        }
-
-        .experience-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .experience-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #333;
-        }
-
-        .experience-item {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: white;
-        }
-
-        .experience-item h3 {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .experience-item .role {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .experience-item .year {
-            font-size: 1.1em;
-            color: #888;
-            margin-bottom: 10px;
-        }
-
-        .experience-item .description {
-            font-size: 1.1em;
-            color: #666;
-            line-height: 1.5;
-        }
-        /* Education section styles */
-        .education-section {
-            padding: 80px 20px 120px 20px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            min-height: calc(100vh - 120px);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: visible;
-        }
-
-        .education-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .education-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #333;
-        }
-
-        .education-item {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #f8f8f8;
-        }
-
-        .education-item h3 {
-            font-size: 1.7em;
-            color: #333;
-            margin-bottom: 10px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .education-item .degree {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .education-item .year {
-            font-size: 1.1em;
-            color: #888;
-            margin-bottom: 10px;
-        }
-
-        .education-item .description {
-            font-size: 1.1em;
-            color: #666;
-            line-height: 1.5;
-        }
-        /* ─── social-icon overrides ───────────────────────────── */
-        .social-icons a {
-            font-size: 32px;
-            margin: 0 8px;
-            transition: opacity .2s;
-        }
-        .social-icons a.github   { color: #181717; }
-        .social-icons a.linkedin { color: #0077b5; }
-        .social-icons a.twitter  { color: #1da1f2; }
-        .social-icons a:hover    { opacity: .8; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <div class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="Blog_Sep_17.html">Blog</a>
-        <a href="#more">More</a>
-        
-        <button id="theme-toggle" class="theme-toggle">
-            <span class="sun-icon">☀️</span>
-            <span class="moon-icon">🌙</span>
-        </button>
-    </div>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">CD</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="Blog_Sep_17.html">Blog</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <div class="hero" id="home"> 
-        <h1>I'm Chris Doan</h1>
-        <p></p>
-        
-        <!-- Social Icons -->
-        <div class="social-icons">
-            <a class="github" href="https://github.com/Chrisdoan9"><i class="fab fa-github fa-2x"></i></a>
-            <a class="linkedin" href="https://www.linkedin.com/in/chris-ph-doan/"><i class="fab fa-linkedin fa-2x"></i></a>
-            <a class="twitter" href="https://x.com/Chris_Ph_D"><i class="fab fa-twitter fa-2x"></i></a>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Chris Doan</h1>
+            <p class="subtitle">Bioinformatics Researcher & Data Analyst</p>
+            <p class="tagline">Specializing in aging research, Alzheimer's disease, and multi-omics data analysis using machine learning</p>
+            
+            <div class="social-icons">
+                <a href="https://github.com/Chrisdoan9" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/chris-ph-doan/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/Chris_Ph_D" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
-
-        <!-- Scroll Button -->
-        <div class="scroll-button">
+        <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
-    </div>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="about-content">
-            <h2>About me</h2>
-            <div class="profile-image">
-                <img src="./images/portrait.png" alt="Chinh Doan">
-            </div>
-            <p class="bio">
-                I am a researcher and bioinformatician focused on aging and aging-related diseases. I am interested in analyzing omics data and applying machine learning methods to biology questions.
-            </p>
-            <p class="details">
-            </p>
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
         </div>
-        <div class="section-scroll-button">
-            <i class="fas fa-chevron-down"></i>
+        <div class="about-content">
+            <div class="profile-image">
+                <img src="./images/portrait.png" alt="Chris Doan">
+            </div>
+            <div class="about-text">
+                <h3>Passionate About Computational Biology</h3>
+                <p>I am a dedicated researcher and bioinformatician with a focus on aging and age-related diseases. My work centers on leveraging cutting-edge computational methods to uncover insights from complex biological data.</p>
+                <p>With expertise in single-cell analysis, genomics, and machine learning, I strive to bridge the gap between data science and biological discovery, particularly in understanding the mechanisms of Alzheimer's disease and cardiovascular health.</p>
+                
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">scRNA-seq</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Genomics</span>
+                    <span class="skill-tag">Systems Biology</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="experience-content">
+    <section id="experience">
+        <div class="section-header">
             <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Boston University</h3>
-                <p class="role">Bioinformatics data analyst</p>
-                <p class="year">Jan 2024 - Aug 2025</p>
-                <p class="description">Analyzed omics data for Alzheimer disease</p>
-            </div>
-            <div class="experience-item">
-                <h3>Stanford University</h3>
-                <p class="role">Life science professional</p>
-                <p class="year">Jan 2023 - Dec 2023</p>
-                <p class="description">Analyzed omics data for cardiovascular diseases</p>
-            </div>
+            <p>My professional journey in bioinformatics and computational biology</p>
         </div>
-        <div class="section-scroll-button">
-            <i class="fas fa-chevron-down"></i>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3>Boston University</h3>
+                <p class="role">Bioinformatics Data Analyst</p>
+                <p class="year"><i class="far fa-calendar"></i> Jan 2024 - Present</p>
+                <p class="description">Leading comprehensive analysis of multi-omics data for Alzheimer's disease research, developing novel computational pipelines for data integration and interpretation.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <h3>Stanford University</h3>
+                <p class="role">Life Science Professional</p>
+                <p class="year"><i class="far fa-calendar"></i> Jan 2023 - Dec 2023</p>
+                <p class="description">Conducted advanced omics data analysis for cardiovascular disease studies, implementing machine learning approaches for biomarker discovery.</p>
+            </div>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="education-section">
-        <div class="education-content">
+    <section id="education">
+        <div class="section-header">
             <h2>Education</h2>
-            <div class="education-item">
+            <p>Academic foundation in bioinformatics and pharmaceutical sciences</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
                 <h3>Virginia Commonwealth University</h3>
-                <p class="degree">MSc. in Bioinformatics</p>
-                <p class="year"></p>
-                <p class="description"></p>
+                <p class="role">MSc. in Bioinformatics</p>
+                <p class="description">Specialized in computational genomics, statistical analysis, and machine learning applications in biological research.</p>
             </div>
-            <div class="education-item">
-                <h3>University of Medicine and Pharmacy at Ho Chi Minh city</h3>
-                <p class="degree">Degree of Pharmacist</p>
-                <p class="year"></p>
-                <p class="description">Clinical pharmacy education with focus on medicinal chemistry and analytical chemistry</p>
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>University of Medicine and Pharmacy</h3>
+                <p class="role">Degree of Pharmacist</p>
+                <p class="description">Comprehensive clinical pharmacy education with focus on medicinal chemistry and analytical chemistry, Ho Chi Minh City.</p>
             </div>
         </div>
     </section>
 
-    <!-- Add JavaScript for smooth scrolling -->
     <script>
-        // Theme toggle functionality
+        // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
-
-        // Check for saved theme preference or default to light mode
         const currentTheme = localStorage.getItem('theme') || 'light';
+        
         if (currentTheme === 'dark') {
             body.classList.add('dark-mode');
         }
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            
-            // Save preference
             const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
             localStorage.setItem('theme', theme);
         });
 
-        // Function to handle scroll to next section
-        function scrollToNextSection(currentId) {
-            const sections = ['home', 'about', 'experience', 'education'];
-            const currentIndex = sections.indexOf(currentId);
-            if (currentIndex < sections.length - 1) {
-                const nextSection = document.getElementById(sections[currentIndex + 1]);
-                nextSection.scrollIntoView({ behavior: 'smooth' });
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
             }
-        }
-
-        // Add click handlers for all scroll buttons
-        document.querySelector('.hero .scroll-button').addEventListener('click', () => {
-            scrollToNextSection('home');
-        });
-
-        document.querySelector('.about-section .section-scroll-button').addEventListener('click', () => {
-            scrollToNextSection('about');
-        });
-
-        document.querySelector('.experience-section .section-scroll-button').addEventListener('click', () => {
-            scrollToNextSection('experience');
         });
     </script>
 </body>
