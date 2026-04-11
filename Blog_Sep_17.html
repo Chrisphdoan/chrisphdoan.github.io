@@ -1,38 +1,31 @@
----
-layout: none
----
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Chris Doan</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        nav { margin-bottom: 30px; }
-        nav a { margin-right: 20px; text-decoration: none; color: #0366d6; }
-        nav a:hover { text-decoration: underline; }
-        .post { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-    </nav>
-    
-    <h1>My Blog</h1>
-    
-    {% for post in site.posts %}
-    <div class="post">
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <p><em>{{ post.date | date: "%B %d, %Y" }}</em></p>
-        <p>{{ post.excerpt }}</p>
-        <a href="{{ post.url }}">Read more...</a>
-    </div>
-    {% endfor %}
-    
-    {% if site.posts.size == 0 %}
-    <p>No blog posts yet. Check back soon!</p>
-    {% endif %}
-</body>
-</html>
+--- layout: none ---
+CD
+About
+Experience
+Publications
+Blog
+☀️ / 🌙
+RESEARCH & INSIGHTS
+Thoughts on Bioinformatics
+Exploring computational biology, single-cell analysis, and the tools shaping modern genomics research.
+{{ site.posts | size }}
+Posts published
+{{ site.posts.last.date | date: "%Y" }}
+Writing since
+{% if site.posts.size == 0 %}
+No posts yet. Check back soon!
+{% else %} {% for post in site.posts %}
+{% if forloop.first %}
+LATEST
+{% endif %}
+{{ post.date | date: "%b %d, %Y" }}
+{% if post.categories.first %}
+{{ POST.CATEGORIES.FIRST }}
+{% elsif post.tags.first %}
+{{ POST.TAGS.FIRST }}
+{% endif %}
+{{ post.title }}
+{% if post.excerpt %} {{ post.excerpt | strip_html | truncatewords: 30 }} {% endif %}
+Read more
+{% endfor %} {% endif %}
+© {{ site.time | date: "%Y" }} Chris Doan · chrisphdoan.com
