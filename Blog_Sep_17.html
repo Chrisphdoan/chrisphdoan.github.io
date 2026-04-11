@@ -1,0 +1,233 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - Chris Doan</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --text-muted: #888;
+      --border: #e5e2da;
+      --accent: #1d6a4a;
+      --tag-bg: #eef7f3;
+      --tag-text: #1d6a4a;
+      --nav-bg: rgba(248,247,244,0.92);
+    }
+    [data-theme="dark"] {
+      --bg: #0f0f0e;
+      --surface: #1a1a18;
+      --text-primary: #f0ede8;
+      --text-secondary: #aaa;
+      --text-muted: #666;
+      --border: #2a2a28;
+      --accent: #4eba8a;
+      --tag-bg: #0d2a1e;
+      --tag-text: #4eba8a;
+      --nav-bg: rgba(15,15,14,0.92);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem; color: var(--text-primary);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .theme-toggle {
+      background: none; border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 10px;
+      cursor: pointer; font-size: 0.8rem;
+      color: var(--text-secondary); transition: all 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .hero {
+      padding: 5rem 2rem 3rem;
+      max-width: 800px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15; color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1rem; color: var(--text-secondary);
+      line-height: 1.7; max-width: 520px;
+    }
+    .hero-stats { display: flex; gap: 2rem; margin-top: 1.5rem; }
+    .stat { font-size: 0.8rem; color: var(--text-muted); }
+    .stat strong { display: block; font-size: 1.3rem; font-weight: 600; color: var(--text-primary); }
+    .posts-grid {
+      max-width: 800px; margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.75rem;
+      text-decoration: none; display: block;
+      transition: all 0.2s;
+    }
+    .post-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .post-meta {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 0.75rem; flex-wrap: wrap;
+    }
+    .post-date { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+    .post-tag {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--tag-bg); color: var(--tag-text);
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .post-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; line-height: 1.3;
+      color: var(--text-primary); margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+    .post-card:hover h2 { color: var(--accent); }
+    .post-excerpt {
+      font-size: 0.9rem; color: var(--text-secondary);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .post-footer { margin-top: 1rem; }
+    .read-more {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--accent);
+    }
+    .post-card:hover .read-more::after { content: " →"; }
+    .latest-card { border: 2px solid var(--accent); position: relative; }
+    .latest-badge {
+      position: absolute; top: -1px; right: 1.5rem;
+      background: var(--accent); color: #fff;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 0 0 6px 6px;
+    }
+    .empty-state {
+      text-align: center; padding: 4rem 2rem;
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+    footer {
+      text-align: center; padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ '/' | relative_url }}" class="nav-logo">CD</a>
+  <div class="nav-links">
+    <a href="{{ '/' | relative_url }}#about">About</a>
+    <a href="{{ '/' | relative_url }}#experience">Experience</a>
+    <a href="{{ '/' | relative_url }}#publications">Publications</a>
+    <a href="{{ '/Blog_Sep_17.html' | relative_url }}" class="active">Blog</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ / 🌙</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Research & Insights</div>
+  <h1>Thoughts on Bioinformatics</h1>
+  <p>Exploring computational biology, single-cell analysis, and the tools shaping modern genomics research.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <strong>{{ site.posts | size }}</strong>
+      Posts published
+    </div>
+    <div class="stat">
+      <strong>{{ site.posts.last.date | date: "%Y" }}</strong>
+      Writing since
+    </div>
+  </div>
+</div>
+
+<div class="posts-grid">
+  {% if site.posts.size == 0 %}
+    <div class="empty-state">No posts yet. Check back soon!</div>
+  {% else %}
+    {% for post in site.posts %}
+      <a class="post-card {% if forloop.first %}latest-card{% endif %}" href="{{ post.url | relative_url }}">
+        {% if forloop.first %}<div class="latest-badge">Latest</div>{% endif %}
+        <div class="post-meta">
+          <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          {% if post.categories.first %}
+            <span class="post-tag">{{ post.categories.first }}</span>
+          {% elsif post.tags.first %}
+            <span class="post-tag">{{ post.tags.first }}</span>
+          {% endif %}
+        </div>
+        <h2>{{ post.title }}</h2>
+        {% if post.excerpt %}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        {% endif %}
+        <div class="post-footer">
+          <span class="read-more">Read more</span>
+        </div>
+      </a>
+    {% endfor %}
+  {% endif %}
+</div>
+
+<footer>
+  <p>© {{ site.time | date: "%Y" }} Chris Doan · <a href="{{ '/' | relative_url }}">chrisphdoan.com</a></p>
+</footer>
+
+<script>
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  }
+</script>
+</body>
+</html>
