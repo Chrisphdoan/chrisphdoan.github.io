@@ -3,4 +3,4 @@ description: Bioinformatics
 theme: minima
 plugins:  
   - jekyll-feed
-permalink: /Blog/:title/
+permalink: /Blog/:title.html
