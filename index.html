@@ -19,11 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary-color: #2563eb;
@@ -50,8 +46,7 @@
         /* Navigation */
         .nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             padding: 1.25rem 2rem;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -75,11 +70,7 @@
             text-decoration: none;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
 
         .nav a {
             color: var(--text-dark);
@@ -90,24 +81,18 @@
             position: relative;
         }
 
-        .nav a:hover {
-            color: var(--primary-color);
-        }
+        .nav a:hover { color: var(--primary-color); }
 
         .nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
             background: var(--primary-color);
             transition: width 0.3s ease;
         }
 
-        .nav a:hover::after {
-            width: 100%;
-        }
+        .nav a:hover::after { width: 100%; }
 
         .theme-toggle {
             background: var(--bg-light);
@@ -128,7 +113,7 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -143,10 +128,7 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: url('./images/aging_theme_2.jpeg') center/cover;
             opacity: 0.15;
             z-index: 0;
@@ -160,259 +142,150 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
+        .hero h1 { font-size: 4rem; font-weight: 700; color: white; margin-bottom: 1rem; line-height: 1.2; }
+        .hero .subtitle { font-size: 1.5rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; font-weight: 300; }
+        .hero .tagline { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
+        .social-icons { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 3rem; }
 
         .social-icons a {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
+            width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
             border-radius: 50%;
-            color: white;
-            font-size: 1.3rem;
+            color: white; font-size: 1.3rem;
             transition: var(--transition);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        .social-icons a:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-5px);
-        }
+        .social-icons a:hover { background: white; color: var(--primary-color); transform: translateY(-5px); }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
+        .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        .scroll-indicator i {
-            color: white;
-            font-size: 2rem;
-            opacity: 0.7;
-        }
+        .scroll-indicator i { color: white; font-size: 2rem; opacity: 0.7; }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* Sections */
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        .section-header { text-align: center; margin-bottom: 4rem; }
 
         .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
+            font-size: 2.5rem; font-weight: 700;
+            color: var(--text-dark); margin-bottom: 1rem;
+            position: relative; display: inline-block;
         }
 
         .section-header h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
+            bottom: -10px; left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
+            width: 60px; height: 4px;
             background: var(--primary-color);
             border-radius: 2px;
         }
 
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 1.5rem auto 0;
-        }
+        .section-header p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 1.5rem auto 0; }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-image {
-            position: relative;
-        }
+        /* About */
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
 
         .profile-image img {
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
+            width: 100%; max-width: 300px; height: 300px;
+            object-fit: cover; border-radius: 20px;
+            box-shadow: var(--shadow-lg); transition: var(--transition);
         }
 
-        .profile-image img:hover {
-            transform: scale(1.05);
-        }
+        .profile-image img:hover { transform: scale(1.05); }
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-        }
+        .about-text h3 { font-size: 1.8rem; color: var(--text-dark); margin-bottom: 1.5rem; }
+        .about-text p { font-size: 1.1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
 
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 2rem;
-        }
+        .skills { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 
         .skill-tag {
             padding: 0.5rem 1rem;
             background: var(--bg-light);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--primary-color);
+            border-radius: 50px; font-size: 0.9rem;
+            font-weight: 500; color: var(--primary-color);
             transition: var(--transition);
         }
 
-        .skill-tag:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
+        .skill-tag:hover { background: var(--primary-color); color: white; transform: translateY(-2px); }
 
-        /* Experience & Education Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+        /* Cards */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 
         .card {
             background: var(--bg-white);
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 15px; padding: 2rem;
             box-shadow: var(--shadow-md);
             transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 
         .card-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             margin-bottom: 1.5rem;
         }
 
-        .card-icon i {
-            color: white;
-            font-size: 1.8rem;
-        }
+        .card-icon i { color: white; font-size: 1.8rem; }
 
-        .card h3 {
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
+        .card h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .card .role { font-size: 1.1rem; color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem; }
+        .card .year { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card .description { font-size: 1rem; color: var(--text-light); line-height: 1.6; }
 
-        .card .role {
-            font-size: 1.1rem;
+        /* Reading List */
+        .reading-category { margin-bottom: 3.5rem; }
+
+        .category-title {
+            font-size: 1.3rem;
             color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .card .year {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--bg-light);
+            font-weight: 600;
         }
 
-        .card .description {
+        .reading-card h3 {
             font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .reading-card .role {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .reading-card .description {
+            font-size: 0.9rem;
             color: var(--text-light);
             line-height: 1.6;
+            margin-top: 0.5rem;
         }
 
         /* Dark Mode */
@@ -424,67 +297,25 @@
             background: #0f172a;
         }
 
-        body.dark-mode .nav {
-            background: rgba(17, 24, 39, 0.95);
-        }
-
-        body.dark-mode .card {
-            background: #1f2937;
-            border-color: rgba(255,255,255,0.1);
-        }
-
-        body.dark-mode .skill-tag {
-            background: #1f2937;
-        }
-
-        body.dark-mode .theme-toggle {
-            background: #1f2937;
-        }
+        body.dark-mode .nav { background: rgba(17,24,39,0.95); }
+        body.dark-mode .card { background: #1f2937; border-color: rgba(255,255,255,0.1); }
+        body.dark-mode .skill-tag { background: #1f2937; }
+        body.dark-mode .theme-toggle { background: #1f2937; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .profile-image img {
-                margin: 0 auto;
-            }
-
-            .skills {
-                justify-content: center;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .about-content { grid-template-columns: 1fr; text-align: center; }
+            .profile-image img { margin: 0 auto; }
+            .skills { justify-content: center; }
+            .nav-links { gap: 1rem; }
+            section { padding: 4rem 1.5rem; }
+            .section-header h2 { font-size: 2rem; }
         }
 
-        /* Hide/show theme icons */
-        body:not(.dark-mode) .moon-icon {
-            display: none;
-        }
-
-        body.dark-mode .sun-icon {
-            display: none;
-        }
+        body:not(.dark-mode) .moon-icon { display: none; }
+        body.dark-mode .sun-icon { display: none; }
     </style>
 </head>
 <body>
@@ -496,8 +327,9 @@
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#education">Education</a>
-                <a href="Blog.html">Blog</a>
+                <a href="Blog_Sep_17.html">Blog</a>
                 <a href="#publications">Publications</a>
+                <a href="#reading-list">Reading</a>
                 <button id="theme-toggle" class="theme-toggle">
                     <span class="sun-icon">☀️</span>
                     <span class="moon-icon">🌙</span>
@@ -506,13 +338,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Chris Doan</h1>
             <p class="subtitle">Bioinformatics Researcher</p>
             <p class="tagline">Specializing in omics analysis</p>
-            
             <div class="social-icons">
                 <a href="https://github.com/Chrisdoan9" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/chris-ph-doan/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -524,11 +355,9 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
-        <div class="section-header">
-            <h2>About Me</h2>
-        </div>
+        <div class="section-header"><h2>About Me</h2></div>
         <div class="about-content">
             <div class="profile-image">
                 <img src="./images/portrait.png" alt="Chris Doan">
@@ -537,7 +366,6 @@
                 <h3>Passionate About Computational Biology</h3>
                 <p>I am a dedicated researcher and bioinformatician with a focus on aging and age-related diseases. My work centers on leveraging cutting-edge computational methods to uncover insights from complex biological data.</p>
                 <p>With expertise in single-cell analysis, genomics, and machine learning, I strive to bridge the gap between data science and biological discovery, particularly in understanding the mechanisms of Alzheimer's disease and cardiovascular health.</p>
-                
                 <div class="skills">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">R</span>
@@ -545,12 +373,13 @@
                     <span class="skill-tag">Machine Learning</span>
                     <span class="skill-tag">Data Visualization</span>
                     <span class="skill-tag">Genomics</span>
+                    <span class="skill-tag">Spatial Transcriptomics</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section id="experience">
         <div class="section-header">
             <h2>Experience</h2>
@@ -558,18 +387,21 @@
         </div>
         <div class="card-grid">
             <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-university"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-university"></i></div>
+                <h3>Beth Israel Deaconess Medical Center</h3>
+                <p class="role">Bioinformatician I</p>
+                <p class="year"><i class="far fa-calendar"></i> May 2026 - Present</p>
+                <p class="description">Spatial transcriptomics analysis of human frontal cortex to study molecular mechanisms underlying brain aging. Working in the Mavrikaki Lab at Harvard Medical School.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-university"></i></div>
                 <h3>Boston University</h3>
                 <p class="role">Bioinformatics Data Analyst</p>
                 <p class="year"><i class="far fa-calendar"></i> Jan 2024 - Aug 2025</p>
                 <p class="description">Leading comprehensive analysis of multi-omics data for Alzheimer's disease research, developing novel computational pipelines for data integration and interpretation.</p>
             </div>
             <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-university"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-university"></i></div>
                 <h3>Stanford University</h3>
                 <p class="role">Life Science Professional</p>
                 <p class="year"><i class="far fa-calendar"></i> Jan 2023 - Dec 2023</p>
@@ -578,7 +410,7 @@
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education">
         <div class="section-header">
             <h2>Education</h2>
@@ -586,17 +418,13 @@
         </div>
         <div class="card-grid">
             <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h3>Virginia Commonwealth University</h3>
                 <p class="role">MSc. in Bioinformatics</p>
                 <p class="description">Specialized in computational genomics, statistical analysis, and machine learning applications in biological research.</p>
             </div>
             <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-user-md"></i>
-                </div>
+                <div class="card-icon"><i class="fas fa-user-md"></i></div>
                 <h3>University of Medicine and Pharmacy</h3>
                 <p class="role">Degree of Pharmacist</p>
                 <p class="description">Comprehensive clinical pharmacy education with focus on medicinal chemistry and analytical chemistry, Ho Chi Minh City.</p>
@@ -604,66 +432,149 @@
         </div>
     </section>
 
-  <!-- Publications Section -->
-<section id="publications">
-    <div class="section-header">
-        <h2>Publications</h2>
-        <p>Peer-reviewed research contributions</p>
-    </div>
-    <div class="card-grid">
-        <div class="card">
-            <div class="card-icon">
-                <i class="fas fa-file-alt"></i>
-            </div>
-            <h3>Circulating C-reactive protein influences polygenic risk of inflammatory genes expressed in brain endothelia for Alzheimer's disease</h3>
-            <p class="role">Neurobiology of Disease, 2026</p>
-            <a href="https://doi.org/10.1016/j.nbd.2025.106813" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                <i class="fas fa-external-link-alt"></i> View Publication
-            </a>
+    <!-- Publications -->
+    <section id="publications">
+        <div class="section-header">
+            <h2>Publications</h2>
+            <p>Peer-reviewed research contributions</p>
         </div>
-    </div>
-</section>
-    
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Circulating C-reactive protein influences polygenic risk of inflammatory genes expressed in brain endothelia for Alzheimer's disease</h3>
+                <p class="role">Neurobiology of Disease, 2026</p>
+                <a href="https://doi.org/10.1016/j.nbd.2025.106813" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                    <i class="fas fa-external-link-alt"></i> View Publication
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading List -->
+    <section id="reading-list">
+        <div class="section-header">
+            <h2>Reading</h2>
+            <p>Papers I am actively reading to deepen my expertise in computational biology and aging</p>
+        </div>
+
+        <!-- Spatial Transcriptomics -->
+        <div class="reading-category">
+            <h3 class="category-title">
+                <i class="fas fa-map-marked-alt"></i> Spatial Transcriptomics
+            </h3>
+            <div class="card-grid">
+
+                <div class="card reading-card">
+                    <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Benchmarking spatial transcriptomics technologies with the multi-sample SpatialBenchVisium dataset</h3>
+                    <p class="role">Du, Wang, Law et al. · Genome Biology, 2025</p>
+                    <p class="description">Comprehensive benchmarking of 10x Visium protocols. Demonstrates multi-sample pseudobulk DEG workflow using limma-voom for spatial data across OCT, FFPE, and CytAssist protocols.</p>
+                    <a href="https://doi.org/10.1186/s13059-025-03543-4" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+
+                <div class="card reading-card">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Spatial transcriptomic clocks reveal cell proximity effects in brain ageing</h3>
+                    <p class="role">Sun, Zhou et al. · Nature, 2025</p>
+                    <p class="description">Develops spatial aging clocks using MERFISH across mouse brain lifespan. Shows T cells accelerate aging while neural stem cells have rejuvenating effects on neighboring cells.</p>
+                    <a href="https://doi.org/10.1038/s41586-024-08334-8" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+
+                <div class="card reading-card">
+                    <div class="card-icon"><i class="fas fa-fire"></i></div>
+                    <h3>Spatial transcriptomics of the aging mouse brain reveals origins of inflammation in the white matter</h3>
+                    <p class="role">Wang et al. · Nature Communications, 2025</p>
+                    <p class="description">Maps aging mouse brain across three age groups using Visium. Identifies white matter as the most prominently changed region with female-biased inflammatory signatures.</p>
+                    <a href="https://doi.org/10.1038/s41467-025-58466-2" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+
+                <div class="card reading-card">
+                    <div class="card-icon"><i class="fas fa-dna"></i></div>
+                    <h3>Spatiotemporal analysis of gene expression in the human dentate gyrus reveals age-associated changes in cellular maturation and neuroinflammation</h3>
+                    <p class="role">Ramnauth et al. · Cell Reports, 2025</p>
+                    <p class="description">Human spatial transcriptomics of hippocampal dentate gyrus across the lifespan. Full code and data publicly available — ideal for learning spatial analysis workflows.</p>
+                    <a href="https://doi.org/10.1016/j.celrep.2025.115300" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Alzheimer's Disease -->
+        <div class="reading-category">
+            <h3 class="category-title">
+                <i class="fas fa-brain"></i> Alzheimer's Disease & Aging
+            </h3>
+            <div class="card-grid">
+
+                <div class="card reading-card">
+                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Circulating C-reactive protein influences polygenic risk of inflammatory genes expressed in brain endothelia for Alzheimer's disease</h3>
+                    <p class="role">Doan et al. · Neurobiology of Disease, 2026</p>
+                    <p class="description">My own publication. Investigates how circulating CRP modulates polygenic risk for inflammatory gene expression in brain endothelial cells relevant to Alzheimer's disease.</p>
+                    <a href="https://doi.org/10.1016/j.nbd.2025.106813" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Methods -->
+        <div class="reading-category">
+            <h3 class="category-title">
+                <i class="fas fa-code"></i> Bioinformatics Methods
+            </h3>
+            <div class="card-grid">
+
+                <div class="card reading-card">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Differential gene expression analysis of spatial transcriptomic experiments using spatial mixed models</h3>
+                    <p class="role">Scientific Reports, 2024</p>
+                    <p class="description">Shows that spatial mixed models outperform standard non-spatial DEG methods for Visium data. Key paper for understanding correct statistical approaches in spatial transcriptomics.</p>
+                    <a href="https://doi.org/10.1038/s41598-024-61758-0" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
     <script>
-        // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-mode');
-        }
+        if (currentTheme === 'dark') body.classList.add('dark-mode');
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Scroll indicator
         document.querySelector('.scroll-indicator').addEventListener('click', () => {
             document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Nav background on scroll
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
-            }
+            document.querySelector('.nav').style.boxShadow =
+                window.scrollY > 100 ? '0 4px 6px rgba(0,0,0,0.1)' : '0 1px 3px rgba(0,0,0,0.1)';
         });
     </script>
 </body>
