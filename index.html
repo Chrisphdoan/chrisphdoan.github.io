@@ -252,13 +252,13 @@
         .card .year { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .card .description { font-size: 1rem; color: var(--text-light); line-height: 1.6; }
 
-        /* Reading List */
-        .reading-category { margin-bottom: 3.5rem; }
+        /* Reading */
+        .reading-category { margin-bottom: 3rem; }
 
         .category-title {
             font-size: 1.3rem;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -267,26 +267,25 @@
             font-weight: 600;
         }
 
-        .reading-card h3 {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: var(--text-dark);
-            margin-bottom: 0.4rem;
+        .paper-list { display: flex; flex-direction: column; gap: 0; }
+
+        .paper-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--bg-light);
         }
 
-        .reading-card .role {
-            font-size: 0.85rem;
-            color: var(--primary-color);
+        .paper-item:last-child { border-bottom: none; }
+
+        .paper-title {
+            font-size: 0.95rem;
             font-weight: 500;
-            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            line-height: 1.5;
+            display: block;
         }
 
-        .reading-card .description {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-top: 0.5rem;
-        }
+        .paper-title:hover { text-decoration: underline; }
 
         /* Dark Mode */
         body.dark-mode {
@@ -450,100 +449,28 @@
         </div>
     </section>
 
-    <!-- Reading List -->
+    <!-- Reading -->
     <section id="reading-list">
         <div class="section-header">
             <h2>Reading</h2>
             <p>Papers I am actively reading to deepen my expertise in computational biology and aging</p>
         </div>
 
+        <!-- ======================================
+             HOW TO ADD A NEW PAPER:
+             Copy one <div class="paper-item"> block,
+             paste it inside the correct category,
+             and update: title, authors, journal, doi, note
+             ====================================== -->
+
         <!-- Spatial Transcriptomics -->
         <div class="reading-category">
-            <h3 class="category-title">
-                <i class="fas fa-map-marked-alt"></i> Spatial Transcriptomics
-            </h3>
-            <div class="card-grid">
+            <h3 class="category-title"><i class="fas fa-map-marked-alt"></i> Spatial Transcriptomics</h3>
+            <div class="paper-list">
 
-                <div class="card reading-card">
-                    <div class="card-icon"><i class="fas fa-microscope"></i></div>
-                    <h3>Benchmarking spatial transcriptomics technologies with the multi-sample SpatialBenchVisium dataset</h3>
-                    <p class="role">Du, Wang, Law et al. · Genome Biology, 2025</p>
-                    <p class="description">Comprehensive benchmarking of 10x Visium protocols. Demonstrates multi-sample pseudobulk DEG workflow using limma-voom for spatial data across OCT, FFPE, and CytAssist protocols.</p>
-                    <a href="https://doi.org/10.1186/s13059-025-03543-4" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
+                <div class="paper-item">
+                    <a href="https://doi.org/10.1186/s13059-025-03543-4" target="_blank" class="paper-title">Benchmarking spatial transcriptomics technologies with the multi-sample SpatialBenchVisium dataset</a>
                 </div>
-
-                <div class="card reading-card">
-                    <div class="card-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Spatial transcriptomic clocks reveal cell proximity effects in brain ageing</h3>
-                    <p class="role">Sun, Zhou et al. · Nature, 2025</p>
-                    <p class="description">Develops spatial aging clocks using MERFISH across mouse brain lifespan. Shows T cells accelerate aging while neural stem cells have rejuvenating effects on neighboring cells.</p>
-                    <a href="https://doi.org/10.1038/s41586-024-08334-8" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-
-                <div class="card reading-card">
-                    <div class="card-icon"><i class="fas fa-fire"></i></div>
-                    <h3>Spatial transcriptomics of the aging mouse brain reveals origins of inflammation in the white matter</h3>
-                    <p class="role">Wang et al. · Nature Communications, 2025</p>
-                    <p class="description">Maps aging mouse brain across three age groups using Visium. Identifies white matter as the most prominently changed region with female-biased inflammatory signatures.</p>
-                    <a href="https://doi.org/10.1038/s41467-025-58466-2" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-
-                <div class="card reading-card">
-                    <div class="card-icon"><i class="fas fa-dna"></i></div>
-                    <h3>Spatiotemporal analysis of gene expression in the human dentate gyrus reveals age-associated changes in cellular maturation and neuroinflammation</h3>
-                    <p class="role">Ramnauth et al. · Cell Reports, 2025</p>
-                    <p class="description">Human spatial transcriptomics of hippocampal dentate gyrus across the lifespan. Full code and data publicly available — ideal for learning spatial analysis workflows.</p>
-                    <a href="https://doi.org/10.1016/j.celrep.2025.115300" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Alzheimer's Disease -->
-        <div class="reading-category">
-            <h3 class="category-title">
-                <i class="fas fa-brain"></i> Alzheimer's Disease & Aging
-            </h3>
-            <div class="card-grid">
-
-                <div class="card reading-card">
-                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
-                    <h3>Circulating C-reactive protein influences polygenic risk of inflammatory genes expressed in brain endothelia for Alzheimer's disease</h3>
-                    <p class="role">Doan et al. · Neurobiology of Disease, 2026</p>
-                    <p class="description">My own publication. Investigates how circulating CRP modulates polygenic risk for inflammatory gene expression in brain endothelial cells relevant to Alzheimer's disease.</p>
-                    <a href="https://doi.org/10.1016/j.nbd.2025.106813" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Methods -->
-        <div class="reading-category">
-            <h3 class="category-title">
-                <i class="fas fa-code"></i> Bioinformatics Methods
-            </h3>
-            <div class="card-grid">
-
-                <div class="card reading-card">
-                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>Differential gene expression analysis of spatial transcriptomic experiments using spatial mixed models</h3>
-                    <p class="role">Scientific Reports, 2024</p>
-                    <p class="description">Shows that spatial mixed models outperform standard non-spatial DEG methods for Visium data. Key paper for understanding correct statistical approaches in spatial transcriptomics.</p>
-                    <a href="https://doi.org/10.1038/s41598-024-61758-0" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-
             </div>
         </div>
 
