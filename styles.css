@@ -464,3 +464,11 @@ body:not(.dark-mode) .moon-icon {
 body.dark-mode .sun-icon {
     display: none;
 }
+
+.card .description a {
+    text-decoration: none;
+}
+
+.card .description a:hover {
+    text-decoration: underline;
+}
