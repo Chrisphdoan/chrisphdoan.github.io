@@ -1,6 +1,8 @@
 title: Home
 description: Bioinformatics
+url: https://chrisphdoan.com
 theme: minima
-plugins:  
+plugins:
   - jekyll-feed
+  - jekyll-sitemap
 permalink: /Blog/:title.html
